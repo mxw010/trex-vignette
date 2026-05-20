@@ -11,6 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
+<meta name="date" content="2026-05-20" />
 
 <title>tRexCAP: A Divide and Conquer Strategy for Recapitulating Whole Genome 3D Structure Using Hi-C Data</title>
 
@@ -361,6 +362,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">tRexCAP: A Divide and Conquer Strategy for
 Recapitulating Whole Genome 3D Structure Using Hi-C Data</h1>
+<h4 class="date">2026-05-20</h4>
 
 
 
@@ -455,8 +457,6 @@ e.</p></li>
 0.95.</p></li>
 <li><p>tuning_control: Tuning control for HMC. See below for
 details.</p></li>
-<li><p>method.type: The method for for reconstructing each block. One of
-tRex, tPAM and bn (Bayesian Nonparametric).</p></li>
 </ul>
 </div>
 <div id="tuning-control" class="section level2">
@@ -512,11 +512,11 @@ coordinates.</p>
 <p>Here we provide an example for tRex-CAP. For illustration simplicity,
 we use the first 100 loci in our example dataset with no bias
 matrix.</p>
-<p>To fully reproduce the results in Park et al. (2026), please read the
-“Simulation” section on how to simulate the exact datasets used in our
-simulation studies. The Lymphoblastoid data used in our analysis,
-Lieberman_breaks and Lieberman_contact, are also provided for
-reproducing our result.</p>
+<p>To fully reproduce the results in <span class="citation">Park et al.
+(2026)</span>, please read the “Simulation” section on how to simulate
+the exact datasets used in our simulation studies. The Lymphoblastoid
+data used in our analysis, Lieberman_breaks and Lieberman_contact, are
+also provided for reproducing our result.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>example_data_short <span class="ot">&lt;-</span> example_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>CutRes <span class="ot">&lt;-</span> <span class="fu">Cut</span>(</span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>            <span class="at">contact =</span> example_data_short, </span>
@@ -540,12 +540,12 @@ reproducing our result.</p>
 <p>The result is an n by 3 matrix.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">head</span>(PasteRes)</span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt;           [,1]      [,2]        [,3]</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt; [1,] -2.360469 -1.509854  0.08949088</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt; [2,] -3.150052 -1.509854  0.54448798</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; [3,] -3.692306 -1.059199 -0.62562482</span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; [4,] -3.766059 -1.346089 -0.85185815</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; [5,] -4.064081 -1.851929 -0.52182403</span></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt; [6,] -3.863089 -1.740686 -0.25522227</span></span></code></pre></div>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt; [1,] -2.360582 -1.509790  0.08944022</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt; [2,] -3.150165 -1.509790  0.54443732</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; [3,] -3.692419 -1.059134 -0.62567547</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; [4,] -3.766172 -1.346025 -0.85190880</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; [5,] -4.064194 -1.851865 -0.52187468</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt; [6,] -3.863202 -1.740621 -0.25527293</span></span></code></pre></div>
 <p>On the 3303MHz AMD EPYC 7R32 CPU, without parallelization it took
 23.8 seconds to execute the command above.</p>
 </div>
